@@ -7,17 +7,17 @@ Healthcare is one of the most critical areas where technology can make a signifi
 HealthyMe evaluates an individual's health-related inputs, such as activity levels, diet, medical history, and sleep patterns, to assess their overall health status. It identifies potential risk factors and provides actionable recommendations to improve health and well-being.
 
 ## How I built it
-1. **Logic Programming**: I used the s(CASP) engine to build a knowledge base and reasoning system.
-2. **Knowledge Base**: I developed health rules from verified medical resources to model various health scenarios.
-3. **Reasoning**: I applied automated reasoning to assess user inputs and infer personalized health advice.
-4. **Interface**: I created a simple command-line interface for entering inputs and viewing recommendations.
+1. **Logic Programming**: Used the s(CASP) engine to build a knowledge base and reasoning system.
+2. **Knowledge Base**: Developed health rules from verified medical resources to model various health scenarios.
+3. **Reasoning**: Applied automated reasoning to assess user inputs and infer personalized health advice.
+4. **Interface**: Created a simple command-line interface for entering inputs and viewing recommendations.
 
-## Challenges I ran into
+## Challenges 
 - Building a comprehensive health knowledge base with accurate rules was challenging.
 - Debugging complex rules that interacted with multiple health factors took time and patience.
 - Ensuring logical consistency in the health advice provided was a constant focus.
 
-## Accomplishments that I'm proud of
+## Accomplishments 
 - Successfully modeled and implemented health scenarios using logic programming.
 - Optimized reasoning rules for better performance and accuracy.
 - Delivered a working prototype that integrates logic programming with a user-friendly interface.

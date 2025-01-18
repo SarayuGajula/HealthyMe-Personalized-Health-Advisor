@@ -1,16 +1,25 @@
+import os
 import streamlit as st
 import subprocess
 
 def query_prolog(file_name, query):
     """Run a Prolog query using the s(CASP) system."""
-    process = subprocess.Popen(['swipl', '-s', file_name, '-g', query, '-t', 'halt'],
-                               stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    output, error = process.communicate()
-    if error:
-        return f"Error: {error.decode()}"
-    return output.decode()
+    try:
+        process = subprocess.Popen(['swipl', '-s', file_name, '-g', query, '-t', 'halt'],
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        output, error = process.communicate()
+        if error:
+            return f"Error: {error.decode()}"
+        return output.decode()
+    except Exception as e:
+        return f"Exception: {str(e)}"
 
 def main():
+    # Debug: Check files in the current directory
+    st.write("Files in the current directory:")
+    st.write(os.listdir("."))
+
+    # Streamlit UI
     st.title("HealthyMe: Personalized Health Advisor")
     st.write("Provide your health information below:")
 

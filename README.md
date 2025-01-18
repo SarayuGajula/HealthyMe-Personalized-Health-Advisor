@@ -1,2 +1,31 @@
-# HealthyMe-Personalized-Health-Advisor
-HealthyMe is an AI system using s(CASP) logic programming to provide personalized health advice. It evaluates user inputs like age, BMI, exercise, diet, and sleep, assesses health risks, and offers actionable recommendations. Features include chronic illness management and dietary tips.
+# HealthyMe: Personalized Health Advisor
+
+## Inspiration
+Healthcare is one of the most critical areas where technology can make a significant impact. I was inspired to build HealthyMe to provide tailored health recommendations based on a person's lifestyle, medical history, and daily habits using automated reasoning. I wanted to create a system that could make health advice more accessible and personalized.
+
+## What it does
+HealthyMe evaluates an individual's health-related inputs, such as activity levels, diet, medical history, and sleep patterns, to assess their overall health status. It identifies potential risk factors and provides actionable recommendations to improve health and well-being.
+
+## How I built it
+1. **Logic Programming**: I used the s(CASP) engine to build a knowledge base and reasoning system.
+2. **Knowledge Base**: I developed health rules from verified medical resources to model various health scenarios.
+3. **Reasoning**: I applied automated reasoning to assess user inputs and infer personalized health advice.
+4. **Interface**: I created a simple command-line interface for entering inputs and viewing recommendations.
+
+## Challenges I ran into
+- Building a comprehensive health knowledge base with accurate rules was challenging.
+- Debugging complex rules that interacted with multiple health factors took time and patience.
+- Ensuring logical consistency in the health advice provided was a constant focus.
+
+## Accomplishments that I'm proud of
+- Successfully modeled and implemented health scenarios using logic programming.
+- Optimized reasoning rules for better performance and accuracy.
+- Delivered a working prototype that integrates logic programming with a user-friendly interface.
+
+## What I learned
+Working on this project helped me learn Prolog and understand how to model complex systems using logic programming. It also gave me a deeper appreciation for the challenges of building AI systems that mimic human reasoning.
+
+## What's next for HealthyMe
+- I plan to collaborate with healthcare professionals to expand and validate the knowledge base.
+- Integrating the system with wearable health devices for real-time data analysis is another goal.
+- Eventually, I aim to develop a web or mobile application for broader accessibility.

@@ -1,13 +1,18 @@
 import os
+import shutil
 import subprocess
 import streamlit as st
 
 # Updated query_prolog function
 def query_prolog(file_name, query):
     """Run a Prolog query using the SWI-Prolog system."""
+    swipl_path = shutil.which("swipl")  # Dynamically locate the SWI-Prolog executable
+    if not swipl_path:
+        return "Error: SWI-Prolog (swipl) is not found in the system PATH."
+
     try:
         process = subprocess.Popen(
-            ['/opt/homebrew/bin/swipl', '-s', file_name, '-g', query, '-t', 'halt'],
+            [swipl_path, '-s', file_name, '-g', query, '-t', 'halt'],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         )
@@ -46,6 +51,7 @@ def main():
     if chronic:
         user_data.append(f"chronic_condition({chronic}).")
 
+    # Save user inputs to a temporary Prolog file
     inputs_file = "user_inputs.pl"
     with open(inputs_file, "w") as file:
         for fact in user_data:
@@ -54,14 +60,21 @@ def main():
     # Analyze health data using Prolog
     if st.button("Get Recommendation"):
         st.write("Analyzing your health data...")
-        recommendation = query_prolog("healthyme.pl", "recommendation(X).")
+        
+        # Path to Prolog knowledge base file
+        base_path = os.path.dirname(os.path.abspath(__file__))
+        prolog_file = os.path.join(base_path, "healthyme.pl")  # Ensure this file exists in the same directory
+
+        # Query Prolog for recommendations
+        recommendation = query_prolog(prolog_file, "recommendation(X).")
         if "Error" in recommendation or "Exception" in recommendation:
             st.error(f"An error occurred while processing your data.\n\n{recommendation}")
         else:
             st.success(f"Health Recommendation: {recommendation}")
 
+        # Debugging information
         st.write("\nDebugging Information:")
-        debug_info = query_prolog("healthyme.pl", "debug_info.")
+        debug_info = query_prolog(prolog_file, "debug_info.")
         st.text(debug_info)
 
 if __name__ == "__main__":
